@@ -1,0 +1,13 @@
+create database neuralworks;
+use neuralworks;
+CREATE TABLE `trips` (
+  `trip_id` int NOT NULL AUTO_INCREMENT,
+  `region` varchar(40) NOT NULL,
+  `origin_lat` float NOT NULL,
+  `origin_lon` float NOT NULL,
+  `dest_lat` float NOT NULL,
+  `dest_lon` float NOT NULL,
+  `datetime` datetime NOT NULL,
+  `datasource` varchar(40) NOT NULL,
+  PRIMARY KEY (`trip_id`)
+) ENGINE=InnoDB;
