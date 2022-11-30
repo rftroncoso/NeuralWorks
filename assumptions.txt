@@ -1,0 +1,7 @@
+1. El código se ejecutó con una instancia de mysql subida en un docker local. Para crear la bbdd se utilizaron los
+comandos escritos en el archivo create_database.txt
+2. Se utilizó el archivo de migración import.ipynb para pasar del csv a sql. Se asumió el formato ISO 6709 para las
+coordenadas (Se transformó a este formato utilizando ejemplo reales).
+3. Se responde la pregunta 1 del README en el archivo grouping.ipynb
+4. Se responde la pregunta 2 del README en el archivo average_trips.ipynb
+5. No se probó escalabilidad ni se informa sobre el estado de la ingesta de datos.
