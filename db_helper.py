@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 import configparser
-
+from db_tables import Trips
 
 def insert_into_table(_dicts, table):
     values = [table(**_dict) for _dict in _dicts]
@@ -33,3 +33,9 @@ def insert_into_db(values):
     with create_db_session() as session:
         session.bulk_save_objects(values)
         session.commit()
+
+
+def get_trips_by_region(region):
+    with create_db_session() as session:
+        rows = session.query(Trips).filter(Trips.region == region).all()
+    return rows
