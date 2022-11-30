@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 import configparser
 from db_tables import Trips
 
+
 def insert_into_table(_dicts, table):
     values = [table(**_dict) for _dict in _dicts]
     insert_into_db(values)
@@ -38,4 +39,11 @@ def insert_into_db(values):
 def get_trips_by_region(region):
     with create_db_session() as session:
         rows = session.query(Trips).filter(Trips.region == region).all()
+    return rows
+
+
+def get_trips_between_dates(region, date_1, date_2):
+    with create_db_session() as session:
+        filters = [Trips.region == region, Trips.datetime <= date_2, Trips.datetime >= date_1]
+        rows = session.query(Trips).filter(*filters).all()
     return rows
